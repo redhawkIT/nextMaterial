@@ -1,4 +1,5 @@
 import Header from './Header'
+import Head from './Head'
 
 const layoutStyle = {
   margin: 20,
@@ -6,10 +7,11 @@ const layoutStyle = {
   border: '1px solid #DDD'
 }
 
-const Layout = (props) => (
+const Layout = ({children, title}) => (
   <div style={layoutStyle}>
+    <Head title={title}/>
     <Header />
-    {props.children}
+    {children}
   </div>
 )
 

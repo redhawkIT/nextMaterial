@@ -25,8 +25,7 @@ const muiTheme = {
 const Index = ({userAgent, movies}) => (
       <MuiThemeProvider muiTheme={getMuiTheme({userAgent, ...muiTheme})}>
         <div>
-          <Head title='Batman'/>
-          <Layout>
+          <Layout title='Batman!'>
             <h1>Batman Movies</h1>
               {movies.map((movie) => (
                 <div key={movie.imdbID} style={{margin: 10}}>
