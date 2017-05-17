@@ -7,6 +7,7 @@ import {deepOrange500} from 'material-ui/styles/colors'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import Head from '../components/Head'
 
 // Make sure react-tap-event-plugin only gets injected once
 // Needed for material-ui
@@ -23,6 +24,8 @@ const muiTheme = {
 
 const Index = ({userAgent, movies}) => (
       <MuiThemeProvider muiTheme={getMuiTheme({userAgent, ...muiTheme})}>
+        <div>
+          <Head title='Batman'/>
           <Layout>
             <h1>Batman Movies</h1>
               {movies.map((movie) => (
@@ -33,6 +36,7 @@ const Index = ({userAgent, movies}) => (
                 </div>
               ))}
           </Layout>
+        </div>
       </MuiThemeProvider>
 )
 
@@ -47,7 +51,7 @@ Index.getInitialProps = async function({ req }) {
 
     const res = await fetch('http://www.omdbapi.com/?s=batman')
     const data = await res.json()
-
+    console.log(data)
     return { 
       userAgent,
       movies: data.Search
